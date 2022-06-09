@@ -24,10 +24,15 @@ void printDates(int weekDayStart, string month) {
 
 	for (int rows = 0; rows < 5; rows++) {
 		for (int cols = 0; cols < 7; cols++) {
-			calendarDates[rows][cols] = dayCount;
-			dayCount++;
-			if (dayCount > 31) {
-				break;
+			if (rows == 0 && cols < weekDayStart) {
+				calendarDates[rows][cols] = 0;
+			}
+			else { 
+                                 calendarDates[rows][cols] = dayCount;
+                                 dayCount++;
+			         if (dayCount > 31) {
+				     break;
+				 }
 			}
 		}
 		if (dayCount > 31) {
@@ -41,8 +46,14 @@ void printDates(int weekDayStart, string month) {
 
 	for (int rows = 0; rows < 5; rows++) {
 		for (int cols = 0; cols < 7; cols++) {
-			cout << calendarDates[rows][cols] << '\t' << " ";
-			dayCount++;
+                        if (calenderDates[rows][cols] == 0) {
+				cout << " ";
+                        }
+			else {
+				cout << calendarDates[rows][cols];
+				dayCount++;
+			}
+			cout << '\t' << " ";
 			
 			if (dayCount > 31) {
 				break;
