@@ -58,8 +58,37 @@ public:
 };
 
 int main() {
-    srand(time(NULL)); //used for rand()
+    srand(time(NULL));
     int rating;
+    float average;
+    movie ponyo("Ponyo", "PG");
+    movie poppyHill("From up on Poppy Hill", "PG");
+    movie totoro("My Neighbor Totoro", "G");
+    movie arrietty("The Secret World of Arrietty", "G");
+    movie array[4];
+
+    array[0] = ponyo;
+    array[1] = poppyHill;
+    array[2] = totoro;
+    array[3] = arrietty;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 5; j++) {
+            rating = rand() % 5 + 1;
+            array[i].addRating(rating);
+        }
+    }
+
+    for (int n = 0; n < 4; n++) {
+        average = array[n].averageRating();
+        cout << "Title: \"" << array[n].title << "\" | MPAA Rating: " << array[n].MPAA << " | Average Star Rating: " << average << endl;
+    }
+
+
+    return 0;
+}
+
+/*int rating;
     float average;
 
     movie movie1("Ponyo", "G"); //initialize movie objects using default constructor
@@ -79,6 +108,4 @@ int main() {
     cout << "Title: " << movie1.title << " | MPAA Rating: " << movie1.MPAA << " | Average Star Rating: " << average << endl; //output desired attributes of object movie1
 
     average = movie2.averageRating(); //calculate average rating for movie object movie2
-    cout << "Title: " << movie2.title << " | MPAA Rating: " << movie2.MPAA << " | Average Star Rating: " << average << endl; //output desired attributes of object movie2
-    return 0;
-}
+    cout << "Title: " << movie2.title << " | MPAA Rating: " << movie2.MPAA << " | Average Star Rating: " << average << endl; //output desired attributes of object movie2*/
