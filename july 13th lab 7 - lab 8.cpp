@@ -5,18 +5,23 @@ using namespace std;
 
 class movie { //create class movie
 public: //create public variables for class
-    int ratings1, ratings2, ratings3, ratings4, ratings5;
+    int ratings[5];
     string MPAA, title;
 
 public:
+    movie() {
+        title = "Untitled";
+        MPAA = "Unrated";
+        for (int i = 0; i < 5; i++) {
+            ratings[i] = 0;
+        }
+    }
     movie(string name, string mpaa) { //default constructor for objects of class movie
         title = name;
         MPAA = mpaa;
-        ratings1 = 0; //all movies start with 0 count for all star ratings
-        ratings2 = 0;
-        ratings3 = 0;
-        ratings4 = 0;
-        ratings5 = 0;
+        for (int i = 0; i < 5; i++) {
+            ratings[i] = 0;
+        }
     }
     void addRating(int rating) { //class function to add a rating for a movie object
         switch (rating) { //detect what rating is give, 1 or 2 or etc
