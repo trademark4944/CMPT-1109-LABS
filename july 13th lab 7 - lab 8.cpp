@@ -26,23 +26,23 @@ public:
     void addRating(int rating) { //class function to add a rating for a movie object
         switch (rating) { //detect what rating is give, 1 or 2 or etc
         case 1:
-            ratings1++; //increase the ammount of the given rating
+            ratings[0]++; //increase the ammount of the given rating
             break;
 
         case 2:
-            ratings2++;
+            ratings[1]++;
             break;
 
         case 3:
-            ratings3++;
+            ratings[2]++;
             break;
 
         case 4:
-            ratings4++;
+            ratings[3]++;
             break;
 
         case 5:
-            ratings5++;
+            ratings[4]++;
             break;
 
         default: //catch any invalid inputs (input greater than 5 or less than 1)
@@ -51,8 +51,8 @@ public:
         }
     }
     float averageRating() { //class function to calculate and return the average rating for the movie object
-        float totalRatings = ratings5 + ratings4 + ratings3 + ratings2 + ratings1;
-        float average = (ratings1 * 1) + (ratings2 * 2) + (ratings3 * 3) + (ratings4 * 4) + (ratings5 * 5);
+        float totalRatings = ratings[0] + ratings[1] + ratings[2] + ratings[3] + ratings[4];
+        float average = (ratings[0] * 1) + (ratings[1] * 2) + (ratings[2] * 3) + (ratings[3] * 4) + (ratings[4] * 5);
         return (average / totalRatings);
     }
 };
